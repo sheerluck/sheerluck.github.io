@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html prefix="" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="complex_plot + plot3d">
+<meta name="viewport" content="width=device-width">
+<title>SageMath | 2d/3d plotting functions of a complex variable with custom colormap</title>
+<link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="https://sheerluck.github.io/pages/">
+<link rel="icon" href="../favicon.ico" sizes="16x16">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="sheerluck">
+<meta property="og:site_name" content="2d/3d plotting functions of a complex variable with custom colormap">
+<meta property="og:title" content="SageMath">
+<meta property="og:url" content="https://sheerluck.github.io/pages/">
+<meta property="og:description" content="complex_plot + plot3d">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2022-02-02T02:02:02+02:00">
+<meta property="article:tag" content="SageMath">
+<link rel="stylesheet" href="../assets/css/katex.min.css">
+</head>
+<body>
+    
+
+    <header id="header" class="navbar"><div class="container">
+            
+    <div class="brand">
+
+        <div class="brand-text">
+            <a href="https://sheerluck.github.io/" title="2d/3d plotting functions of a complex variable with custom colormap" rel="home">
+                2d/3d plotting functions of a complex variable with custom colormap
+            </a>
+        </div>
+
+        <a id="btn-toggle-nav" class="navbar-toggle">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+    </div>
+
+            
+    <nav class="navbar-collapse collapse"><ul class="nav"></ul></nav>
+</div>
+    </header><div class="header-padding"> </div>
+
+    
+    <div class="post-header">
+        <div class="container">
+            <div class="title">
+                SageMath
+            </div>
+        </div>
+    </div>
+
+    <div id="post-main" class="main">
+        <div class="container">
+        <div class="line-block">
+<div class="line"><br></div>
+</div>
+<img src="images/header.png"><p class="center"><a class="reference external" href="https://en.wikipedia.org/wiki/Domain_coloring">Domain coloring</a> plot of the function <span class="math">\(f(x) = \frac{{\left(x^{2} - 1\right)} {\left(x - i - 2\right)}^{2}}{x^{2} + 2 i + 2}\)</span></p>
+<p>I do not like <strong>rainbow</strong> colormap. Too bright. Too colorful. And it does not tell you what quadrant you are in.
+I need colormap with <strong>four</strong> contrast borders and there is no such colormap in <strong>Matplotlib</strong>.
+So I smashed together my <strong>four</strong> favourite colormaps (<strong>gray</strong> + <strong>half of the twilight</strong> <a class="footnote-reference brackets" href="#footnote-1" id="footnote-reference-1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> + <strong>cubehelix</strong> + <strong>viridis</strong>) into <a class="reference external" href="matplotlib_cm_listed.py.patch">one</a>:</p>
+<center> <img src="images/get_cmap.png"> </center>
+<p>Now I can finally <a class="reference external" href="https://doc.sagemath.org/html/en/reference/plotting/sage/plot/complex_plot.html">complex_plot</a> and <a class="reference external" href="https://doc.sagemath.org/html/en/reference/plot3d/sage/plot/plot3d/plot3d.html">plot3d</a> the way I wanted.</p>
+<p>Turns out some plots have <strong>distinct stripes</strong>. You just can not see them with other colormaps.</p>
+<p>Turns out putting <strong>cubehelix</strong> in the first quadrant was a great idea.</p>
+<p>I feel like I see things that nobody else sees. Like <a class="reference external" href="images/this_thing.png">this thing</a> for <span class="math">\(f(z) = \frac{e^{\left(-z\right)}}{z^{3}}\)</span></p>
+<p>I thought it would be nice to show you all this stuff, you might find it beautiful.</p>
+<p>The rest of this page is just <strong>the links to Three.js-based</strong> <span class="red">memory consuming</span> <strong>3D plots</strong> with corresponding 2D plots.</p>
+<p>You can use <strong>up</strong> and <strong>down</strong> arrow keys to move between plots.</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<hr class="docutils">
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<table><tbody>
+<tr onmouseover="this.focus()" tabindex="0">
+<td><p><img src="images/00_id.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/00_id.html"><strong>  <span class="math">\(f(z) = z\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>24 Mb on disk, 340 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="1">
+<td><p><img src="images/01_sqrt.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/01_sqrt.html"><strong>  <span class="math">\(f(z) = \sqrt{z}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>35 Mb on disk, 480 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="2">
+<td><p><img src="images/02_sin.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/02_sin.html"><strong>  <span class="math">\(f(z) = \sin\left(z\right)\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>13 Mb on disk, 190 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="3">
+<td><p><img src="images/03_log.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/03_log.html"><strong>  <span class="math">\(f(z) = \log\left(z\right)\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>55 Mb on disk, 740 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="4">
+<td><p><img src="images/04_lambert_w.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/04_lambert_w.html"><strong>  <span class="math">\(f(z) = \operatorname{W}({z})\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>55 Mb on disk, 740 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="5">
+<td><p><img src="images/05_exp.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/05_exp.html"><strong>  <span class="math">\(f(z) = e^{z}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>21 Mb on disk, 300 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="6">
+<td><p><img src="images/06_z5_z-1_1z.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/06_z5_z-1_1z.html"><strong>  <span class="math">\(f(z) = z^{5} + z + \frac{1}{z} - 1\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>20 Mb on disk, 280 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="7">
+<td><p><img src="images/07_zeta.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/07_zeta.html"><strong>  <span class="math">\(f(z) = \zeta(z)\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>51 Mb on disk, 690 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="8">
+<td><p><img src="images/08_gamma.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/08_gamma.html"><strong>  <span class="math">\(f(z) = \Gamma\left(z\right)\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>71 Mb on disk, 930 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="9">
+<td><p><img src="images/09_zzz.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/09_zzz.html"><strong>  <span class="math">\(f(z) = {\left(z + 3 i\right)} {\left(z - 3\right)} z^{2}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>29 Mb on disk, 400 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="10">
+<td><p><img src="images/10_z2z2.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/10_z2z2.html"><strong>  <span class="math">\(f(z) = \frac{z^{2} + 1}{z^{2} - 1}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>33 Mb on disk, 450 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="11">
+<td><p><img src="images/11_z3z2exp.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/11_z3z2exp.html"><strong>  <span class="math">\(f(z) = \frac{{\left(z + i\right)}^{3}}{{\left(z + 1\right)}^{2}} e^{\left(\frac{1}{z - i - 1}\right)}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>32 Mb on disk, 470 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="12">
+<td><p><img src="images/12_exp5Iz.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/12_exp5Iz.html"><strong>  <span class="math">\(f(z) = e^{\left(\frac{5 i}{z}\right)}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>56 Mb on disk, 740 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="13">
+<td><p><img src="images/13_exp-z-z3.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/13_exp-z-z3.html"><strong>  <span class="math">\(f(z) = \frac{e^{\left(-z\right)}}{z^{3}}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>31 Mb on disk, 420 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="14">
+<td><p><img src="images/14_z3-z2-2.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/14_z3-z2-2.html"><strong>  <span class="math">\(f(z) = z^{3} - z^{2} - 2\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>21 Mb on disk, 300 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="15">
+<td><p><img src="images/15_z1i_1-i_iz-z2.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/15_z1i_1-i_iz-z2.html"><strong>  <span class="math">\(f(z) = -\frac{z + i + 1}{z^{2} - i \, z + i - 1}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>34 Mb on disk, 470 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="16">
+<td><p><img src="images/16_z2-iz-1_i_z-i.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/16_z2-iz-1_i_z-i.html"><strong>  <span class="math">\(f(z) = \frac{z^{2} - i \, z + i - 1}{z - i}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>46 Mb on disk, 620 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="17">
+<td><p><img src="images/17_sin2piz_z3.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/17_sin2piz_z3.html"><strong>  <span class="math">\(f(z) = \frac{\sin\left(2 \, \pi z\right)}{z^{3}}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>30 Mb on disk, 440 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="18">
+<td><p><img src="images/18_z4-1_z2.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/18_z4-1_z2.html"><strong>  <span class="math">\(f(z) = \frac{z^{4} - 1}{z^{2}}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>35 Mb on disk, 520 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="19">
+<td><p><img src="images/19_zizi.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/19_zizi.html"><strong>  <span class="math">\(f(z) = \frac{z + i}{z - i}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>35 Mb on disk, 480 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="20">
+<td><p><img src="images/20_z5-3_z3.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/20_z5-3_z3.html"><strong>  <span class="math">\(f(z) = \frac{z^{5} - 3}{z^{3}}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>33 Mb on disk, 450 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="21">
+<td><p><img src="images/21_log_gamma.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/21_log_gamma.html"><strong>  <span class="math">\(f(z) = \log\Gamma\left(z\right)\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>32 Mb on disk, 440 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="22">
+<td><p><img src="images/22_log_gamma.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/22_log_gamma.html"><strong>  <span class="math">\(f(z) = \log\left(\Gamma\left(z\right)\right)\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>32 Mb on disk, 440 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="23">
+<td><p><img src="images/23_z3_3z_8_z-2.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/23_z3_3z_8_z-2.html"><strong>  <span class="math">\(f(z) = z^{3} + 3 \, z + \frac{1}{{\left(z - 2\right)}^{2}} + 8\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>90 Mb on disk, 1177 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="24">
+<td><p><img src="images/24_z2Iz222Iz2I2.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/24_z2Iz222Iz2I2.html"><strong>  <span class="math">\(f(z) = \frac{{\left(z^{2} + 2 i + 2\right)} {\left(z^{2} + i\right)}}{{\left(z + i + 2\right)}^{2}}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>34 Mb on disk, 460 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="25">
+<td><p><img src="images/25_expIsinz.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/25_expIsinz.html"><strong>  <span class="math">\(f(z) = e^{\left(i \, \sin\left(z\right)\right)}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>69 Mb on disk, 910 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="26">
+<td><p><img src="images/26_exp5z4.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/26_exp5z4.html"><strong>  <span class="math">\(f(z) = e^{\left(\frac{5}{z^{4}}\right)}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>99 Mb on disk, 1300 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="27">
+<td><p><img src="images/27_bessel_J_I_bessel_Y.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/27_bessel_J_I_bessel_Y.html"><strong>  <span class="math">\(f(z) = J_{0}(z) + i \, Y_{0}(z)\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>62 Mb on disk, 820 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="28">
+<td><p><img src="images/28_z3z2_exp3z_z2z__x1.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/28_z3z2_exp3z_z2z__x1.html"><strong>  <span class="math">\(f(z) = \frac{{\left(z^{2} + 1\right)} {\left(z + i + 1\right)}^{3}}{{\left(z + 1\right)} {\left(z - 1\right)}^{2}} e^{\frac{3}{z}}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>22 Mb on disk, 310 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="29">
+<td><p><img src="images/29_z3z2_exp3z_z2z__x50.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/29_z3z2_exp3z_z2z__x50.html"><strong>  <span class="math">\(f(z) = \frac{{\left(z^{2} + 1\right)} {\left(z + i + 1\right)}^{3}}{{\left(z + 1\right)} {\left(z - 1\right)}^{2}} e^{\frac{3}{z}}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>scaled by 50 times</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>76 Mb on disk, 980 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="30">
+<td><p><img src="images/30_z3z2_exp3z_z2z__x2000.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/30_z3z2_exp3z_z2z__x2000.html"><strong>  <span class="math">\(f(z) = \frac{{\left(z^{2} + 1\right)} {\left(z + i + 1\right)}^{3}}{{\left(z + 1\right)} {\left(z - 1\right)}^{2}} e^{\frac{3}{z}}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>scaled by 2000 times</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>81 Mb on disk, 1050 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="31">
+<td><p><img src="images/31_chebyshev_T5_z.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/31_chebyshev_T5_z.html"><strong>  <span class="math">\(f(z) = 16 \, z^{5} - 20 \, z^{3} + 5 \, z\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>31 Mb on disk, 430 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="32">
+<td><p><img src="images/32_erf.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/32_erf.html"><strong>  <span class="math">\(f(z) = \operatorname{erf}\left(z\right)\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>49 Mb on disk, 640 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="33">
+<td><p><img src="images/33_gammaz2_gammaz2.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/33_gammaz2_gammaz2.html"><strong>  <span class="math">\(f(z) = \frac{\Gamma\left(z - i\right)^{2}}{\Gamma\left(z + i\right)^{2}}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>73 Mb on disk, 940 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="34">
+<td><p><img src="images/34_Iz23-z23.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/34_Iz23-z23.html"><strong>  <span class="math">\(f(z) = \left(-i \, z\right)^{\frac{2}{3}} - \left(-z\right)^{\frac{2}{3}}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>70 Mb on disk, 920 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="35">
+<td><p><img src="images/35_expz24sqrtpiI_dawsonz2sqrt2pi.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/35_expz24sqrtpiI_dawsonz2sqrt2pi.html"><strong>  <span class="math">\(f(z) = \frac{\frac{1}{2} \, e^{-\frac{z^{2}}{4}} \, \sqrt{\pi} + i \, D_+\left(\frac{z}{2}\right)}{\sqrt{2\pi}}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>where <span class="math">\(D_+(x) = \frac{\sqrt{\pi}}{2} e^{-x^{2}} \operatorname{erfi}\left(x\right)\)</span></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>44 Mb on disk, 590 Mb in RAM</p>
+</center></td>
+</tr>
+<tr onmouseover="this.focus()" tabindex="36">
+<td><p><img src="images/36_binet.png"></p></td>
+<td><center>
+<p><a class="reference external" href="plot3d/36_binet.html"><strong>  <span class="math">\(f(z) = \frac{\left(\frac{1 + \sqrt{5}}{2}\right)^{z}- \left(\frac{1 - \sqrt{5}}{2}\right)^{z}}{\sqrt{5}}\)</span>  </strong></a></p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>76 Mb on disk, 980 Mb in RAM</p>
+</center></td>
+</tr>
+</tbody></table>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<aside class="footnote brackets" id="footnote-1" role="note"><span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#footnote-reference-1">1</a><span class="fn-bracket">]</span></span>
+<p>One can not use the <strong>full twilight</strong>, it's dark in the center. The Dark Side of the <span class="strike">Moon</span> Twilight is needed.</p>
+</aside><div class="line-block">
+<div class="line"><br></div>
+</div>
+<hr class="docutils">
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p><strong>And now for something completely different</strong></p>
+<pre class="code python"><a id="rest_code_10f42653284f4d0e9877dccdcf83246b-1" name="rest_code_10f42653284f4d0e9877dccdcf83246b-1" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-1"></a><span class="k">def</span> <span class="nf">p3d</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">nx</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">px</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-2" name="rest_code_10f42653284f4d0e9877dccdcf83246b-2" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-2"></a>              <span class="n">ny</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">py</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-3" name="rest_code_10f42653284f4d0e9877dccdcf83246b-3" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-3"></a>              <span class="n">D</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">is_log</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">hi_res</span><span class="o">=</span><span class="mi">600</span><span class="p">):</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-4" name="rest_code_10f42653284f4d0e9877dccdcf83246b-4" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-4"></a>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-5" name="rest_code_10f42653284f4d0e9877dccdcf83246b-5" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-5"></a>    <span class="kn">from</span> <span class="nn">matplotlib.cm</span> <span class="kn">import</span> <span class="n">get_cmap</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-6" name="rest_code_10f42653284f4d0e9877dccdcf83246b-6" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-6"></a>    <span class="n">cm</span> <span class="o">=</span> <span class="n">get_cmap</span><span class="p">(</span><span class="s2">"sheerluck"</span><span class="p">)</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-7" name="rest_code_10f42653284f4d0e9877dccdcf83246b-7" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-7"></a>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-8" name="rest_code_10f42653284f4d0e9877dccdcf83246b-8" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-8"></a>    <span class="k">def</span> <span class="nf">_scale</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-9" name="rest_code_10f42653284f4d0e9877dccdcf83246b-9" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-9"></a>        <span class="k">if</span> <span class="n">is_log</span><span class="p">:</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-10" name="rest_code_10f42653284f4d0e9877dccdcf83246b-10" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-10"></a>            <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="n">infinity</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-11" name="rest_code_10f42653284f4d0e9877dccdcf83246b-11" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-11"></a>            <span class="k">return</span> <span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-12" name="rest_code_10f42653284f4d0e9877dccdcf83246b-12" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-12"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-13" name="rest_code_10f42653284f4d0e9877dccdcf83246b-13" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-13"></a>            <span class="k">return</span> <span class="n">x</span> <span class="o">/</span> <span class="n">D</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-14" name="rest_code_10f42653284f4d0e9877dccdcf83246b-14" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-14"></a>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-15" name="rest_code_10f42653284f4d0e9877dccdcf83246b-15" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-15"></a>    <span class="k">def</span> <span class="nf">_arg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-16" name="rest_code_10f42653284f4d0e9877dccdcf83246b-16" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-16"></a>        <span class="n">val</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">I</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span>    <span class="c1"># f(z)</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-17" name="rest_code_10f42653284f4d0e9877dccdcf83246b-17" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-17"></a>        <span class="n">a</span> <span class="o">=</span> <span class="n">arg</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="o">+</span> <span class="n">pi</span>     <span class="c1"># f(z).arg</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-18" name="rest_code_10f42653284f4d0e9877dccdcf83246b-18" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-18"></a>        <span class="n">τ</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-19" name="rest_code_10f42653284f4d0e9877dccdcf83246b-19" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-19"></a>        <span class="k">return</span> <span class="n">n</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">τ</span><span class="p">)</span>       <span class="c1"># [-π..π] -&gt; [0..1]</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-20" name="rest_code_10f42653284f4d0e9877dccdcf83246b-20" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-20"></a>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-21" name="rest_code_10f42653284f4d0e9877dccdcf83246b-21" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-21"></a>    <span class="k">def</span> <span class="nf">_abs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-22" name="rest_code_10f42653284f4d0e9877dccdcf83246b-22" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-22"></a>        <span class="n">val</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">I</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span>    <span class="c1"># f(z)</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-23" name="rest_code_10f42653284f4d0e9877dccdcf83246b-23" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-23"></a>        <span class="n">a</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>     <span class="c1"># f(z).abs</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-24" name="rest_code_10f42653284f4d0e9877dccdcf83246b-24" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-24"></a>        <span class="n">a</span> <span class="o">=</span> <span class="n">_scale</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-25" name="rest_code_10f42653284f4d0e9877dccdcf83246b-25" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-25"></a>        <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">top</span><span class="p">:</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-26" name="rest_code_10f42653284f4d0e9877dccdcf83246b-26" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-26"></a>            <span class="k">return</span> <span class="n">a</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-27" name="rest_code_10f42653284f4d0e9877dccdcf83246b-27" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-27"></a>        <span class="k">return</span> <span class="n">infinity</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-28" name="rest_code_10f42653284f4d0e9877dccdcf83246b-28" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-28"></a>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-29" name="rest_code_10f42653284f4d0e9877dccdcf83246b-29" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-29"></a>    <span class="k">def</span> <span class="nf">_real</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-30" name="rest_code_10f42653284f4d0e9877dccdcf83246b-30" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-30"></a>        <span class="n">val</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">I</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span>    <span class="c1"># f(z)</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-31" name="rest_code_10f42653284f4d0e9877dccdcf83246b-31" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-31"></a>        <span class="n">a</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">real</span><span class="p">()</span><span class="o">.</span><span class="n">n</span><span class="p">()</span>    <span class="c1"># f(z).real</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-32" name="rest_code_10f42653284f4d0e9877dccdcf83246b-32" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-32"></a>        <span class="n">a</span> <span class="o">=</span> <span class="n">_scale</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-33" name="rest_code_10f42653284f4d0e9877dccdcf83246b-33" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-33"></a>        <span class="k">if</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">top</span><span class="p">:</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-34" name="rest_code_10f42653284f4d0e9877dccdcf83246b-34" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-34"></a>            <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="mf">0.03</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-35" name="rest_code_10f42653284f4d0e9877dccdcf83246b-35" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-35"></a>        <span class="k">return</span> <span class="n">infinity</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-36" name="rest_code_10f42653284f4d0e9877dccdcf83246b-36" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-36"></a>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-37" name="rest_code_10f42653284f4d0e9877dccdcf83246b-37" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-37"></a>    <span class="n">P</span> <span class="o">=</span> <span class="n">plot3d</span><span class="p">(</span> <span class="n">_abs</span><span class="p">,</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-38" name="rest_code_10f42653284f4d0e9877dccdcf83246b-38" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-38"></a>                <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">px</span><span class="p">),</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-39" name="rest_code_10f42653284f4d0e9877dccdcf83246b-39" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-39"></a>                <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">py</span><span class="p">),</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-40" name="rest_code_10f42653284f4d0e9877dccdcf83246b-40" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-40"></a>                <span class="n">plot_points</span><span class="o">=</span><span class="n">hi_res</span><span class="p">,</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-41" name="rest_code_10f42653284f4d0e9877dccdcf83246b-41" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-41"></a>                <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="n">_arg</span><span class="p">,</span> <span class="n">cm</span><span class="p">))</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-42" name="rest_code_10f42653284f4d0e9877dccdcf83246b-42" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-42"></a>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-43" name="rest_code_10f42653284f4d0e9877dccdcf83246b-43" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-43"></a>    <span class="n">Q</span> <span class="o">=</span> <span class="n">plot3d</span><span class="p">(</span> <span class="n">_real</span><span class="p">,</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-44" name="rest_code_10f42653284f4d0e9877dccdcf83246b-44" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-44"></a>                <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">px</span><span class="p">),</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-45" name="rest_code_10f42653284f4d0e9877dccdcf83246b-45" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-45"></a>                <span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">py</span><span class="p">),</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-46" name="rest_code_10f42653284f4d0e9877dccdcf83246b-46" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-46"></a>                <span class="n">plot_points</span><span class="o">=</span><span class="n">hi_res</span><span class="p">,</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-47" name="rest_code_10f42653284f4d0e9877dccdcf83246b-47" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-47"></a>                <span class="n">color</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">,</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-48" name="rest_code_10f42653284f4d0e9877dccdcf83246b-48" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-48"></a>                <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-49" name="rest_code_10f42653284f4d0e9877dccdcf83246b-49" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-49"></a>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-50" name="rest_code_10f42653284f4d0e9877dccdcf83246b-50" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-50"></a>    <span class="k">return</span> <span class="n">P</span> <span class="o">+</span> <span class="n">Q</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-51" name="rest_code_10f42653284f4d0e9877dccdcf83246b-51" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-51"></a>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-52" name="rest_code_10f42653284f4d0e9877dccdcf83246b-52" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-52"></a>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-53" name="rest_code_10f42653284f4d0e9877dccdcf83246b-53" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-53"></a><span class="k">def</span> <span class="nf">thats_all_folks</span><span class="p">():</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-54" name="rest_code_10f42653284f4d0e9877dccdcf83246b-54" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-54"></a>    <span class="n">P</span> <span class="o">=</span> <span class="n">complex_plot</span><span class="p">(</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="p">,</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-55" name="rest_code_10f42653284f4d0e9877dccdcf83246b-55" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-55"></a>                      <span class="p">(</span><span class="o">-</span><span class="mf">9.5</span><span class="p">,</span> <span class="mf">9.5</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">6.5</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">),</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-56" name="rest_code_10f42653284f4d0e9877dccdcf83246b-56" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-56"></a>                      <span class="n">ticks</span><span class="o">=</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)),</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-57" name="rest_code_10f42653284f4d0e9877dccdcf83246b-57" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-57"></a>                             <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))],</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-58" name="rest_code_10f42653284f4d0e9877dccdcf83246b-58" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-58"></a>                      <span class="n">aspect_ratio</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-59" name="rest_code_10f42653284f4d0e9877dccdcf83246b-59" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-59"></a>                      <span class="n">plot_points</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-60" name="rest_code_10f42653284f4d0e9877dccdcf83246b-60" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-60"></a>                      <span class="n">contoured</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-61" name="rest_code_10f42653284f4d0e9877dccdcf83246b-61" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-61"></a>                      <span class="n">figsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"Reds"</span><span class="p">)</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-62" name="rest_code_10f42653284f4d0e9877dccdcf83246b-62" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-62"></a>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-63" name="rest_code_10f42653284f4d0e9877dccdcf83246b-63" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-63"></a>    <span class="n">Q</span> <span class="o">=</span> <span class="n">circle</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="mf">2.85</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-64" name="rest_code_10f42653284f4d0e9877dccdcf83246b-64" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-64"></a>               <span class="n">rgbcolor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0078</span><span class="p">,</span> <span class="mf">0.1529</span><span class="p">,</span> <span class="mf">0.2902</span><span class="p">))</span>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-65" name="rest_code_10f42653284f4d0e9877dccdcf83246b-65" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-65"></a>
+<a id="rest_code_10f42653284f4d0e9877dccdcf83246b-66" name="rest_code_10f42653284f4d0e9877dccdcf83246b-66" href="#rest_code_10f42653284f4d0e9877dccdcf83246b-66"></a>    <span class="k">return</span> <span class="n">P</span> <span class="o">+</span> <span class="n">Q</span>
+</pre>
+<p><strong>see also</strong> <a class="reference external" href="https://trac.sagemath.org/ticket/33416">https://trac.sagemath.org/ticket/33416</a></p>
+<center> <img src="images/one_over_z_squared.png"> </center>
+<!-- That’s all folks! --><script src="../assets/js/katex.min.js"></script><script src="../assets/js/auto-render.min.js"></script><script>
+                renderMathInElement(document.body,
+                    {
+                        
+ delimiters: [
+     {left: "$$", right: "$$", display: true},
+     {left: "\\[", right: "\\]", display: true},
+     {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+     {left: "$", right: "$", display: false},
+     {left: "\\(", right: "\\)", display: false}
+ ]
+
+                    }
+                );
+            </script>
+</div>
+    </div>
+
+    
+    <footer><div class="container">
+            <div class="social">
+
+
+
+            </div>
+                <div class="copyright">
+                    Contents © 2022         <a href="mailto:sheer.luck.andrew@gmail.com">sheerluck</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+                    
+                </div>
+           
+        </div>
+    </footer><script src="../assets/js/all-nocdn.js" type="text/javascript"></script>
+<script src="../assets/js/Use_arrow_keys_to_navigate_an_HTML_table.js" type="text/javascript"></script>
+</body>
+</html>
