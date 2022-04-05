@@ -3,12 +3,13 @@ $(document).ready(function() {
 });
 
 function checkKey(e) {
+    var tr_len = $("#plots").find("tr").length;
     var event = window.event ? window.event : e;
     if(event.keyCode == 40){ //down
         var idx = $("tr:focus").attr("tabindex");
         idx++;
-        if(idx > 36){
-            idx = 36;
+        if(idx > tr_len - 1){
+            idx = tr_len - 1;
             $("tr[tabindex="+idx+"]").blur();
         } else {
             $("tr[tabindex="+idx+"]").focus();
